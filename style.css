@@ -106,6 +106,10 @@ li {
   padding-left: 140px;
 }
 
+.displayNone {
+  display: none;
+}
+
 @media (max-width: 800px) {
 
   .menu__btn {
@@ -120,6 +124,9 @@ li {
 
 @media (min-width: 800px) {
 
+  .page__background  {
+    width: 100%;
+  }
 
   .menu__btn {
     margin-bottom: 80px;
@@ -140,6 +147,14 @@ li {
 
 }
 
+@media (min-width: 1200px) {
+
+  .page__background  {
+    height: 100%;
+  }
+
+}
+
 @media (min-width: 1400px) {
 
   .menu__btn {
@@ -154,4 +169,25 @@ li {
     width: 100%;
   }
 
+}
+
+.game {
+  height: 100%;
+  text-align: center;
+}
+
+.game_easy {
+  padding-top: calc(50vh - 345px / 2);
+}
+
+.game_mid {
+  padding-top: calc(50vh - 345px);
+}
+
+.game_heavy {
+  padding-top: calc(50vh - 345px * 3 / 2);
+}
+
+.game__card {
+  cursor: pointer;
 }
