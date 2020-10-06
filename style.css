@@ -176,18 +176,25 @@ li {
   text-align: center;
 }
 
-.game_easy {
+.cardsIn1 {
   padding-top: calc(50vh - 345px / 2);
 }
 
-.game_mid {
+.cardsIn2 {
   padding-top: calc(50vh - 345px);
 }
 
-.game_heavy {
-  padding-top: calc(50vh - 345px * 3 / 2);
+.cardLine {
+
 }
 
 .game__card {
   cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.game__card:hover {
+  box-shadow: 15px 15px 15px rgba(0,0,0,0.5);
+  transform: translateY(-40px) rotateZ(-3deg);;
 }
