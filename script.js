@@ -55,16 +55,46 @@ function startGame() {
   return function() {
     menu.classList.add('displayNone');
     game.classList.remove('displayNone');
-    for (i = 0; i < cardsLines; i++) {
-      const newLine = document.createElement('div');
-      newLine.className = 'cardLine';
-      let imgStringStart = `<img src="img/card.png" alt="Карта" class="game__card">`;
-      let imgStringEnd = ``;
-      for (j = 0; j < cardsInLine; j++) {
-        imgStringEnd += imgStringStart;
-      }
-      newLine.innerHTML = `${imgStringEnd}`;
-      cardsIn.append(newLine);
+
+    const newLine = document.createElement('div');
+    newLine.className = 'cardLine';
+    let imgStringEnd = generateCardsTemplate(cardsNumb);
+    newLine.innerHTML = `${imgStringEnd}`;
+    cardsIn.append(newLine);
+
+    let cards = document.querySelectorAll('.card');
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].addEventListener("click", function() {
+        cards[i].classList.toggle("is-flipped");
+      });
     }
   }
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+}
+
+function generateCardsTemplate(numb) {
+  let imgStringStart = `<div class="scene">
+  <div class="card">
+  <img src="img/card.png" alt="Карта" class="game__card game__card_front">`;
+  let imgStringEnd = ``;
+  let imgStringBug = `<img src="img/bug.png" alt="Карта с багом" class="game__card game__card_back">
+  </div>
+  </div>`;
+  let imgStringFail = `<img src="img/gameOver.png" alt="Карта ошибки" class="game__card game__card_back">
+  </div>
+  </div>`;
+  let bugNumb = getRandomInt(0, numb);
+  for (i = 0; i < numb; i++) {
+    if (i === bugNumb) {
+      imgStringEnd = imgStringEnd + imgStringStart + imgStringBug;
+    } else {
+      imgStringEnd = imgStringEnd + imgStringStart + imgStringFail;
+    }
+  }
+  return imgStringEnd;
 }
