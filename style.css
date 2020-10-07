@@ -106,75 +106,6 @@ li {
   display: none;
 }
 
-@media (max-width: 800px) {
-
-  .menu__btn {
-    margin-bottom: 80px;
-  }
-
-  .menu__cards, .menu__card {
-    display: inline-block;
-    position: absolute;
-  }
-}
-
-@media (min-width: 800px) {
-
-  .page__background  {
-    width: 100%;
-  }
-
-  .menu__btn {
-    margin-bottom: 80px;
-  }
-
-  .menu__cards, .menu__card {
-    display: inline-block;
-    position: absolute;
-  }
-
-}
-
-@media (min-width: 1000px) {
-
-  .menu__btn {
-    margin-right: 100px;
-  }
-
-}
-
-@media (min-width: 1200px) {
-
-  .page__background  {
-    height: 100%;
-  }
-
-}
-
-@media (max-width: 1300px) {
-
-  .game__card {
-    width: 150px;
-  }
-
-}
-
-@media (min-width: 1400px) {
-
-  .menu__btn {
-    margin-right: 401px;
-  }
-
-}
-
-@media (min-width: 1600px) {
-
-  .page__background  {
-    width: 100%;
-  }
-
-}
-
 .game {
   height: 100%;
   text-align: center;
@@ -237,4 +168,133 @@ li {
 
 .cardBlockOut {
   display: block;
+}
+
+@media (max-width: 500px) {
+
+  .page__background  {
+    height: 100%;
+    width: 100%;
+  }
+
+  .menu {
+    padding-left: 10%;
+  }
+
+  .menu__title {
+    padding-top: 10%;
+  }
+
+  .menu__subtitle {
+    font-size: 15px;
+    margin-bottom: 5%;
+  }
+
+  .menu__option {
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+
+  .menu__btn {
+    margin-bottom: 0;
+    margin-top: 10%;
+    width: 90%;
+  }
+
+  .menu__cards {
+    display: none;
+  }
+
+  .game__card {
+    height: 125px;
+    margin: 10px;
+    margin-bottom: 0;
+  }
+
+}
+
+@media (min-width: 500px) {
+
+  .page__background  {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+  }
+
+  .menu__btn {
+    margin-bottom: 80px;
+  }
+
+  .menu__cards, .menu__card {
+    display: inline-block;
+    position: absolute;
+  }
+
+  .game__card {
+    /*height: 190px;*/
+    margin: 10px;
+    margin-bottom: 0;
+  }
+
+}
+
+@media (min-width: 800px) {
+
+  .page__background  {
+    width: 1745px;
+  }
+
+  .menu__btn {
+    margin-bottom: 80px;
+  }
+
+  .menu__cards, .menu__card {
+    display: inline-block;
+    position: absolute;
+  }
+
+  .game__card {
+    width: 180px;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  .menu__btn {
+    margin-right: 100px;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .page__background  {
+    height: 100%;
+  }
+
+}
+
+@media (min-width: 1400px) {
+
+  .menu__btn {
+    margin-right: 401px;
+  }
+
+}
+
+@media (min-width: 1600px) {
+
+  .page__background  {
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 1745px) {
+
+    .page__background  {
+      width: 100%;
+    }
+
 }
