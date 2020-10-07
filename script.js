@@ -55,18 +55,15 @@ function startGame() {
   return function() {
     menu.classList.add('displayNone');
     game.classList.remove('displayNone');
-
     const newLine = document.createElement('div');
     newLine.className = 'cardLine';
-    let imgStringEnd = generateCardsTemplate(cardsNumb);
+    let imgStringEnd = generateCardsTemplate(cardsNumb, cardsInLine, cardsLines);
     newLine.innerHTML = `${imgStringEnd}`;
     cardsIn.append(newLine);
 
     let cards = document.querySelectorAll('.card');
     for (let i = 0; i < cards.length; i++) {
-      cards[i].addEventListener("click", function() {
-        cards[i].classList.toggle("is-flipped");
-      });
+      cards[i].addEventListener("click", flip(cards, i), {once: true});
     }
   }
 }
@@ -74,10 +71,10 @@ function startGame() {
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateCardsTemplate(numb) {
+function generateCardsTemplate(numb, numbInLine, numbLines) {
   let imgStringStart = `<div class="scene">
   <div class="card">
   <img src="img/card.png" alt="Карта" class="game__card game__card_front">`;
@@ -88,6 +85,7 @@ function generateCardsTemplate(numb) {
   let imgStringFail = `<img src="img/gameOver.png" alt="Карта ошибки" class="game__card game__card_back">
   </div>
   </div>`;
+  let imgLineBreak = `</div><div class="cardLine">`;
   let bugNumb = getRandomInt(0, numb);
   for (i = 0; i < numb; i++) {
     if (i === bugNumb) {
@@ -95,6 +93,30 @@ function generateCardsTemplate(numb) {
     } else {
       imgStringEnd = imgStringEnd + imgStringStart + imgStringFail;
     }
+    if ((i % numbInLine === numbInLine - 1) && (i !== numb - 1)) {
+      imgStringEnd += imgLineBreak;
+    }
   }
   return imgStringEnd;
+}
+
+function flip(cardSequence, index) {
+  return function() {
+    cardSequence[index].classList.toggle("is-flipped");
+    cardSequence[index].addEventListener("click", backToMenu());
+    for (let j = 0; j < cardSequence.length; j++) {
+      cardSequence[j].removeEventListener("click", flip(cardSequence, j));
+    }
+  }
+}
+
+function backToMenu() {
+  return function() {
+    const oldLine = document.querySelector('.cardLine');
+    if (oldLine) {
+      oldLine.remove();
+    }
+    menu.classList.remove('displayNone');
+    game.classList.add('displayNone');
+  }
 }

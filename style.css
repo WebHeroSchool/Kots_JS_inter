@@ -34,10 +34,6 @@ body, html {
   margin-top: 0;
 }
 
-.menu__options {
-  /*margin-left: 30px;*/
-}
-
 .pre {
   display: inline-block;
   width: 45px;
@@ -155,6 +151,14 @@ li {
 
 }
 
+@media (max-width: 1300px) {
+
+    .game__card {
+      width: 150px;
+    }
+
+}
+
 @media (min-width: 1400px) {
 
   .menu__btn {
@@ -184,13 +188,10 @@ li {
   padding-top: calc(50vh - 345px);
 }
 
-.cardLine {
-
-}
-
 .game__card {
   cursor: pointer;
   margin: 15px;
+  text-align: center;
   transition: all 0.3s ease-in-out;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -199,6 +200,10 @@ li {
 .game__card:hover {
   box-shadow: 15px 15px 15px rgba(0,0,0,0.5);
   transform: translateY(-30px) rotateZ(-2deg);;
+}
+
+.cardLine {
+  /*display: block;*/
 }
 
 .scene {
@@ -221,4 +226,16 @@ li {
 
 .game__card_back {
   transform: rotateY( 180deg );
+}
+
+.game__card_front {
+  position: absolute;
+}
+
+.cardBlockIn {
+  display: inline-block;
+}
+
+.cardBlockOut {
+  display: block;
 }
