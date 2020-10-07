@@ -153,9 +153,9 @@ li {
 
 @media (max-width: 1300px) {
 
-    .game__card {
-      width: 150px;
-    }
+  .game__card {
+    width: 150px;
+  }
 
 }
 
@@ -203,7 +203,6 @@ li {
 }
 
 .cardLine {
-  /*display: block;*/
 }
 
 .scene {

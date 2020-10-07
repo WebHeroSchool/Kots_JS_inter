@@ -65,7 +65,7 @@ function startGame() {
     for (let i = 0; i < cards.length; i++) {
       cards[i].addEventListener("click", flip(cards, i), {once: true});
     }
-  }
+  };
 }
 
 function getRandomInt(min, max) {
@@ -107,7 +107,7 @@ function flip(cardSequence, index) {
     for (let j = 0; j < cardSequence.length; j++) {
       cardSequence[j].removeEventListener("click", flip(cardSequence, j));
     }
-  }
+  };
 }
 
 function backToMenu() {
@@ -118,5 +118,5 @@ function backToMenu() {
     }
     menu.classList.remove('displayNone');
     game.classList.add('displayNone');
-  }
+  };
 }
